@@ -35,7 +35,7 @@ export const codaProjects = [
   },
   {
     slug: "smart-asset-sa-ai", year: "2026", color: "#304e82",
-    cover: { src: "src/assets/images/work/smart-asset-sa-ai/cover-flow/sku.webp", alt: { en: "PEC Smart Asset SKU screen with category-specific metadata", th: "หน้าจอ SKU ของ PEC Smart Asset พร้อม metadata ตามประเภท" } },
+    cover: { src: "src/assets/images/work/smart-asset-sa-ai/site-management-wireflow.jpg", alt: { en: "PEC Smart Asset wireflow connecting categories, SKU creation, physical assets, and site management", th: "ผังหน้าจอ PEC Smart Asset เชื่อม Category การสร้าง SKU ทรัพย์สินจริง และการจัดการไซต์" } },
     en: {
       title: "PEC Smart Asset", problem: "Different assets need different information.",
       role: "UX × SA Intern · Initial specifications & UX/UI",
