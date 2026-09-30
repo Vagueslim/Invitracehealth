@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process';
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
 const env = { ...process.env, PORTFOLIO_DEPLOY: '1' };
@@ -15,3 +15,14 @@ for (const marker of ['lang="en"', 'data-wcf-slider', 'id="conversation"', 'I fi
 }
 await writeFile(new URL('../dist/.nojekyll', import.meta.url), '');
 console.log('Ready to deploy: upload the complete dist folder. Root index verified.');
+
+// Preserve previously shared links while moving visitors to the renamed routes.
+const { codaRoutes } = await import('../src/data/coda-routes.js');
+const { relativeHref } = await import('./lib/html.js');
+for (const route of codaRoutes) {
+  const oldPath = route.path.replace('/Invitracehealth/', '/coda/');
+  const href = relativeHref(oldPath, route.path);
+  const directory = new URL(`../dist${oldPath}`, import.meta.url);
+  await mkdir(directory, { recursive: true });
+  await writeFile(new URL('index.html', directory), `<!doctype html><html lang="${route.locale}"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${href}"><title>Invitracehealth</title></head><body><a href="${href}">Continue to Invitracehealth</a></body></html>`);
+}
