@@ -69,7 +69,7 @@ export const codaCaseCopy = {
         ["Enter several items together", "Officers can select multiple medical items, set quantities, review their selection, and save the batch."],
         ["Keep the price comparison visible", "Charged, eligible, and declared amounts appear together for review. A mismatch prompts a warning and correction of the source document, rather than silently changing the amount."]
       ],
-      categoriesCaption: "The category structure separates medical supplies 1, 2, and 3 while keeping the amounts visible.",
+      paymentFlowCaption: "WCF payment wireflow connecting payment screens for hospitals, beneficiaries, and physician compensation.",
       itemsCaption: "The item picker supports multiple selections, quantities, a selection summary, and one save action.",
       pricesCaption: "Charged, eligible, and declared prices are available in the billing context.",
       outcomeTitle: "A flow users could complete under the required rules.",
@@ -93,7 +93,7 @@ export const codaCaseCopy = {
         ["เลือกและบันทึกหลายรายการพร้อมกัน", "เจ้าหน้าที่เลือกรายการเวชภัณฑ์หลายข้อ ระบุจำนวน ตรวจรายการที่เลือก และบันทึกพร้อมกันได้"],
         ["เห็นราคาที่ต้องเทียบในบริบทเดียวกัน", "แสดงยอดเรียกเก็บ จ่ายได้ และราคาประกาศเพื่อใช้ตรวจสอบ หากไม่ตรง ระบบแจ้งเตือนเพื่อให้แก้เอกสารต้นทาง ไม่เปลี่ยนยอดให้อัตโนมัติ"]
       ],
-      categoriesCaption: "แยกเวชภัณฑ์ 1, 2 และ 3 พร้อมคงยอดเงินแต่ละประเภทไว้ให้ตรวจสอบ",
+      paymentFlowCaption: "ผังหน้าจอการจ่ายเงิน WCF เชื่อมการจ่ายโรงพยาบาล การจ่ายทายาท และค่าตอบแทนแพทย์",
       itemsCaption: "หน้าจอเลือกหลายรายการ ระบุจำนวน สรุปรายการที่เลือก และบันทึกในครั้งเดียว",
       pricesCaption: "ราคาเรียกเก็บ จ่ายได้ และราคาประกาศอยู่ในบริบทงานใบแจ้งหนี้",
       outcomeTitle: "ผู้ใช้ทำงานได้ภายใต้ระเบียบที่ต้องใช้จริง",

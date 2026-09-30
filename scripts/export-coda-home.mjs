@@ -4,7 +4,7 @@ import { basename, extname, resolve } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const dist = resolve(root, 'dist');
 const source = resolve(dist, 'th/coda/index.html');
-const destination = resolve(root, 'Innovative-portfolio.html');
+const destination = resolve(root, 'Invitracehealth-portfolio.html');
 
 const mimeTypes = {
   '.css': 'text/css',
@@ -53,7 +53,7 @@ html = html.replace('</body>', `<script>${menuJs}\n${pageJs}</script></body>`);
 const favicon = await readFile(resolve(root, 'public/favicon.png'));
 html = html.replace('href="../../favicon.png"', `href="data:image/png;base64,${favicon.toString('base64')}"`);
 html = html.replace(/href="\.\/([^\"]*)"/g, (_, route) => {
-  if (!route) return 'href="./Innovative-portfolio.html"';
+  if (!route) return 'href="./Invitracehealth-portfolio.html"';
   return `href="./th/coda/${route}index.html"`;
 });
 html = html.replaceAll('href="../../coda/"', 'href="./coda/index.html"');

@@ -1,74 +1,31 @@
+/* Artwork and live HTML typography share the same responsive canvas. */
 .co-collab-hero {
+  --hero-blue: #1551d1;
   position: relative;
   isolation: isolate;
   width: 100%;
-  max-width: 1680px;
-  aspect-ratio: 1491 / 1055;
+  aspect-ratio: 3 / 2;
   margin-inline: auto;
-  overflow: clip;
   background: #fff;
-  color: #090909;
+  color: #080808;
   container-type: inline-size;
 }
-
-.co-collab-hero__art { position: absolute; inset: 0; z-index: -1; }
+.co-collab-hero__art { position: absolute; inset: 0; margin: 0; z-index: 0; }
 .co-collab-hero__art img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.co-collab-hero__meta {
-  position: absolute;
-  top: 3.05%; left: 5.4%; right: 5.4%;
-  display: flex; justify-content: space-between; gap: 24px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(10px, .78cqw, 15px); line-height: 1.4;
-  letter-spacing: .16em; text-transform: uppercase;
+.co-site .co-collab-hero__title {
+  position: absolute; z-index: 1; left: 2.2%; right: 2.2%; bottom: 5%;
+  margin: 0; font-family: 'Arial Black', Arial, Helvetica, sans-serif;
+  font-weight: 900; letter-spacing: -.075em; line-height: 1;
 }
-.co-collab-hero__meta p { background: #fff; padding-right: 14px; }
-.co-collab-hero__meta p:last-child { padding-left: 14px; padding-right: 0; }
-.co-collab-hero__title {
-  position: absolute; left: 3.75%; top: 8.1%;
-  font-family: 'Arial Black', Arial, Helvetica, sans-serif;
-  font-weight: 900; letter-spacing: -.07em;
-}
-.co-locale-th .co-collab-hero__title { line-height: normal; letter-spacing: -.07em; }
-.co-collab-hero__name { display: block; font-size: 10.2cqw; line-height: .92; transform: scaleX(.78); transform-origin: left center; }
+.co-collab-hero__title > span { display: block; width: fit-content; white-space: nowrap; }
+.co-collab-hero__name { font-size: 17.3cqw; line-height: .94; }
 .co-collab-hero__times {
-  display: block; margin-top: .035em; margin-bottom: .03em;
-  font-family: Arial, sans-serif; font-size: 10.5cqw; font-weight: 300;
-  line-height: .55; color: #ff4b0a;
+  font-family: Arial, Helvetica, sans-serif; font-size: 13cqw; font-weight: 900;
+  line-height: .69; margin-block: .055em; color: var(--hero-blue);
 }
-.co-collab-hero__partner { display: block; font-size: 8.8cqw; line-height: .88; color: #ff4b0a; transform: scaleX(.85); transform-origin: left center; }
-.co-collab-hero__label {
-  position: absolute; z-index: 1;
-  font-family: Arial, 'IBM Plex Sans Thai', sans-serif;
-  font-size: clamp(10px, .78cqw, 15px);
-  font-weight: 600; line-height: 1.4; text-transform: uppercase;
-  letter-spacing: .13em; white-space: nowrap; background: #fff; padding: 2px 5px;
-}
-.co-collab-hero__label--human { left: 35%; top: 29%; }
-.co-collab-hero__label--product { right: 3.5%; top: 36.4%; }
-.co-collab-hero__label--experience { right: 3.6%; top: 49.4%; }
-.co-collab-hero__footer {
-  position: absolute; left: 5.5%; bottom: 3.55%;
-  background: #fff; padding-right: 12px;
-  font-family: Arial, 'IBM Plex Sans Thai', sans-serif;
-  font-size: clamp(11px, .86cqw, 17px); line-height: 1.5;
-}
+.co-collab-hero__partner { font-size: 11.45cqw; line-height: 1; color: var(--hero-blue); }
 .co-home-feature { padding-top: clamp(24px, 3vw, 50px); }
-
-@media (max-width: 900px) {
-  .co-collab-hero { aspect-ratio: auto; padding: 25px 6% 28px; }
-  .co-collab-hero__meta { position: relative; inset: auto; align-items: flex-start; font-size: 10px; letter-spacing: .1em; gap: 20px; }
-  .co-collab-hero__meta p { max-width: 48%; padding: 0; }
-  .co-collab-hero__meta p:last-child { text-align: right; padding: 0; }
-  .co-collab-hero__meta span { white-space: nowrap; }
-  .co-collab-hero__title { position: relative; inset: auto; margin: 43px 0 0; letter-spacing: -.075em; }
-  .co-collab-hero__name { font-size: 15cqw; line-height: .94; transform: none; }
-  .co-collab-hero__times { font-size: 18cqw; line-height: .85; margin-block: .06em; }
-  .co-collab-hero__partner { font-size: 14.1cqw; line-height: .91; transform: none; }
-  .co-collab-hero__art { position: relative; inset: auto; z-index: 0; width: 113.64%; margin: 28px -6.82% 0; aspect-ratio: 1 / 1.02; overflow: clip; }
-  .co-collab-hero__art img { position: absolute; width: 156%; height: auto; max-width: none; right: -1%; top: -2%; }
-  .co-collab-hero__label { font-size: clamp(9px, 1.5cqw, 12px); letter-spacing: .09em; padding: 4px 6px; }
-  .co-collab-hero__label--human { left: 4%; top: 30%; }
-  .co-collab-hero__label--product { right: 3%; top: 37%; }
-  .co-collab-hero__label--experience { right: 3%; top: 52%; }
-  .co-collab-hero__footer { position: relative; inset: auto; margin-top: 22px; padding: 0; font-size: 12px; }
+@media (max-width: 600px) {
+  .co-collab-hero { aspect-ratio: 3 / 2; }
+  .co-site .co-collab-hero__title { bottom: 4%; }
 }

@@ -68,16 +68,11 @@ function projectRows(route, home = false) {
 
 function home(route) {
   return `<section class="co-collab-hero" aria-labelledby="co-collab-title">
-    <div class="co-collab-hero__meta"><p>${text(route, 'A collaboration proposal', 'ข้อเสนอเพื่อร่วมงาน')}</p><p>${text(route, 'Tailored portfolio', 'พอร์ตโฟลิโอที่คัดสรร')} <span>/ Innovative</span></p></div>
-    <h1 class="co-collab-hero__title" id="co-collab-title"><span class="co-collab-hero__name">Dhittawat</span><span class="co-collab-hero__times" aria-label="${text(route, 'in collaboration with', 'ร่วมงานกับ')}">×</span><span class="co-collab-hero__partner">Innovative</span></h1>
-    <figure class="co-collab-hero__art" aria-label="${text(route, 'Two flowing structures meet to form one coherent experience', 'โครงสร้างสองสายมาบรรจบกันเป็นประสบการณ์เดียว')}">
-      <img src="${asset(route, 'src/assets/images/home/innovative-hero-sculpture.png')}" alt="" width="1491" height="1055" fetchpriority="high" decoding="async">
-      <figcaption class="co-collab-hero__label co-collab-hero__label--human">${text(route, 'Human context', 'บริบทของคน')}</figcaption>
-      <span class="co-collab-hero__label co-collab-hero__label--product">${text(route, 'Product logic', 'ตรรกะของระบบ')}</span>
-      <span class="co-collab-hero__label co-collab-hero__label--experience">${text(route, 'Coherent experience', 'ประสบการณ์ที่เชื่อมกัน')}</span>
+        <figure class="co-collab-hero__art" aria-hidden="true">
+      <img src="${asset(route, 'src/assets/images/home/invitracehealth-medical-hero.png')}" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
     </figure>
-    <p class="co-collab-hero__footer">${text(route, 'Understanding complexity. Designing clarity.', 'เข้าใจความซับซ้อน แล้วออกแบบให้ชัดเจน')}</p>
-  </section>
+    <h1 class="co-collab-hero__title" id="co-collab-title" aria-label="Dhittawat × Invitracehealth"><span class="co-collab-hero__name">Dhittawat</span><span class="co-collab-hero__times" aria-hidden="true">×</span><span class="co-collab-hero__partner">Invitracehealth</span></h1>
+</section>
     <section class="co-home-feature co-wrap"><div class="co-hero-project"><div class="co-section-line"><span>${text(route, 'FEATURED CASE / 01', 'เคสเปิดเรื่อง / 01')}</span><a href="${link(route, 'work-detail', 'wcf-digital')}">WCF Digital ${arrow}</a></div>
     ${wcfHero(route)}
     <div class="co-hero-caption"><p>${text(route, 'A billing form existed, but officers still had to finish the work outside the system.', 'มีหน้าจอใบแจ้งหนี้แล้ว แต่เจ้าหน้าที่ยังต้องออกไปทำงานให้จบข้างนอกระบบ')}</p><a class="co-link" href="${link(route, 'work-detail', 'wcf-digital')}">${text(route, 'Read the story', 'อ่านเรื่องนี้')} ${arrow}</a></div></div></section>
@@ -91,10 +86,10 @@ function work(route) {
 }
 
 export function renderCodaPage(route) {
-  const titles = {home:'Innovative × Dhittawat', about:text(route,'About Dhittawat','รู้จัก Dhittawat'), 'work-index':text(route,'Selected work','ผลงานที่เลือกมา')};
+  const titles = {home:'Invitracehealth × Dhittawat', about:text(route,'About Dhittawat','รู้จัก Dhittawat'), 'work-index':text(route,'Selected work','ผลงานที่เลือกมา')};
   const project = codaProjects.find(item => item.slug === route.slug);
   return { active: route.page === 'home' ? 'home' : route.page === 'about' ? 'about' : 'work',
-    meta:{title:`${titles[route.page] || project[route.locale].title} — Innovative`, description: project ? project[route.locale].summary : text(route, 'Three product-design case studies by Dhittawat: WCF Digital, Q-CHANG, and PEC Smart Asset.', 'สามเรื่องราวการออกแบบของ Dhittawat: WCF Digital, Q-CHANG และ PEC Smart Asset')},
+    meta:{title:`${titles[route.page] || project[route.locale].title} — Invitracehealth`, description: project ? project[route.locale].summary : text(route, 'Three product-design case studies by Dhittawat: WCF Digital, Q-CHANG, and PEC Smart Asset.', 'สามเรื่องราวการออกแบบของ Dhittawat: WCF Digital, Q-CHANG และ PEC Smart Asset')},
     body: route.page === 'home' ? home(route) : route.page === 'work-index' ? work(route) : route.page === 'about' ? renderCodaAbout(route) : renderCodaCase(route)
   };
 }
@@ -108,8 +103,8 @@ export function renderCodaShell({route, meta, body, active}) {
   return `<!doctype html><html lang="${route.locale}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>${esc(meta.title)}</title><meta name="description" content="${esc(meta.description)}"><link rel="icon" href="${asset(route,'/favicon.png')}"><link rel="alternate" hreflang="${alt.locale}" href="${alternateHref}" vite-ignore><link rel="stylesheet" href="${asset(route,'/src/styles/coda.css')}"></head>
   <body class="co-site co-locale-${route.locale}" data-site-menu><a class="co-skip" href="#main-content">${text(route,'Skip to content','ข้ามไปเนื้อหา')}</a>
     <header class="co-header"><a class="co-brand" href="${link(route,'home')}" aria-label="Dhittawat — Home">D<span aria-hidden="true">.</span></a><nav class="co-nav" data-coda-nav aria-label="${text(route,'Primary navigation','เมนูหลัก')}">${navLinks}</nav><div class="co-header-actions">${langLink}<button type="button" class="co-menu-toggle" data-site-menu-toggle aria-controls="co-menu" aria-expanded="false">${text(route,'Menu','เมนู')} +</button></div></header>
-    <aside class="co-menu" id="co-menu" role="dialog" aria-modal="true" aria-label="${text(route,'Navigation','เมนูนำทาง')}" aria-hidden="true" inert data-site-menu-panel><div class="co-menu-top"><span>Innovative × Dhittawat</span><button type="button" data-site-menu-close>${text(route,'Close','ปิด')} ×</button></div><nav aria-label="${text(route,'Mobile navigation','เมนูมือถือ')}">${navLinks}</nav></aside>
+    <aside class="co-menu" id="co-menu" role="dialog" aria-modal="true" aria-label="${text(route,'Navigation','เมนูนำทาง')}" aria-hidden="true" inert data-site-menu-panel><div class="co-menu-top"><span>Invitracehealth × Dhittawat</span><button type="button" data-site-menu-close>${text(route,'Close','ปิด')} ×</button></div><nav aria-label="${text(route,'Mobile navigation','เมนูมือถือ')}">${navLinks}</nav></aside>
     <main id="main-content" tabindex="-1">${body}</main>
-    <footer class="co-footer co-wrap"><div class="co-footer-top"><a class="co-footer-name" href="${link(route,'home')}">Dhittawat<span>.</span></a><a class="co-link" href="${esc(site.linkedin)}" target="_blank" rel="noreferrer">LinkedIn ${arrow}</a></div><div class="co-footer-bottom"><span>© 2026 Dhittawat Thongkhum</span><span>${text(route,'Selected work for Innovative','ผลงานที่เลือกมาสำหรับ Innovative')}</span><a href="#main-content">${text(route,'Back to top','กลับด้านบน')} ↑</a></div></footer>
+    <footer class="co-footer co-wrap"><div class="co-footer-top"><a class="co-footer-name" href="${link(route,'home')}">Dhittawat<span>.</span></a><a class="co-link" href="${esc(site.linkedin)}" target="_blank" rel="noreferrer">LinkedIn ${arrow}</a></div><div class="co-footer-bottom"><span>© 2026 Dhittawat Thongkhum</span><span>${text(route,'Selected work for Invitracehealth','ผลงานที่เลือกมาสำหรับ Invitracehealth')}</span><a href="#main-content">${text(route,'Back to top','กลับด้านบน')} ↑</a></div></footer>
     <script type="module" src="${asset(route,'/src/scripts/coda.js')}"></script></body></html>`;
 }
