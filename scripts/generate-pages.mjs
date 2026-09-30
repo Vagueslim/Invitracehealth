@@ -78,11 +78,11 @@ for (const route of codaRoutes) {
 
 console.log(`Generated ${routes.length} existing and ${codaRoutes.length} Coda localized HTML pages.`);
 
-// Deploy the selected Thai edition at the site root, rendering relative URLs
+// Deploy the selected English edition at the site root, rendering relative URLs
 // from its new location instead of copying nested HTML with broken paths.
 if (process.env.PORTFOLIO_DEPLOY === '1') {
-  const route = { ...codaRoutes.find(r => r.locale === 'th' && r.page === 'home'), path: '/', file: 'index.html' };
-  const html = `<!-- Generated deployment entry: Thai selected portfolio. -->\n${renderCodaShell({ route, ...renderCodaPage(route) })}`;
+  const route = { ...codaRoutes.find(r => r.locale === 'en' && r.page === 'home'), path: '/', file: 'index.html' };
+  const html = `<!-- Generated deployment entry: English selected portfolio. -->\n${renderCodaShell({ route, ...renderCodaPage(route) })}`;
   await writeFile(resolve(projectRoot, 'index.html'), html, 'utf8');
-  console.log('Deployment index.html now opens the Thai selected portfolio.');
+  console.log('Deployment index.html now opens the English selected portfolio.');
 }

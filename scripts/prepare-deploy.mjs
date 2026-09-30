@@ -10,7 +10,7 @@ for (const args of [['scripts/generate-pages.mjs'], ['node_modules/vite/bin/vite
   if (result.status !== 0) process.exit(result.status || 1);
 }
 const html = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
-for (const marker of ['lang="th"', 'data-wcf-slider', 'id="conversation"', 'I find inspiration']) {
+for (const marker of ['lang="en"', 'data-wcf-slider', 'id="conversation"', 'I find inspiration']) {
   if (!html.includes(marker)) throw new Error(`Deployment index is missing ${marker}`);
 }
 await writeFile(new URL('../dist/.nojekyll', import.meta.url), '');
